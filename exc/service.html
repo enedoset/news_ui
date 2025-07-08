@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>來找芒狗偵探，幫你了解真相！</title>
+  <link rel="stylesheet" href="service.css">
+</head>
+<body>
+  <div class="error-message" style="display:none;"></div>
+  <img src="dog hend.png" class="dog-hand dog-hand-1" alt="dog hand" />
+  <img src="dog hend.png" class="dog-hand dog-hand-2" alt="dog hand" />
+  <img src="dog hend.png" class="dog-hand dog-hand-3" alt="dog hand" />
+  <header class="header">
+    <div class="header-left">
+      
+      <span class="header-icon" role="img" aria-label="camera">
+        <img src="camara icon.png" alt="camera icon" style="width:60px;height:60px;display:block;" />
+      </span>
+      <span class="header-title">圖破謠言，新聞真偽辨識AI</span>
+    </div>
+    <div class="header-right">
+      <button class="login-btn">Login</button>
+      <button class="menu-btn" aria-label="menu" onclick="document.querySelector('.menu-dropdown').classList.toggle('show')">
+        <span class="menu-bar"></span>
+        <span class="menu-bar"></span>
+        <span class="menu-bar"></span>
+      </button>
+      <nav class="menu-dropdown">
+        <a href="#">首頁</a>
+        <a href="#">軟體服務</a>
+        <a href="#">產品介紹</a>
+        <a href="#">關於我們</a>
+        <a href="#">聯絡我們</a>
+      </nav>
+    </div>
+  </header>
+  <img src="dog icon.png" class="bg-dog" alt="dog icon" />
+  <div class="container">
+    <h1>來找芒狗偵探，幫你了解真相！</h1>
+    <div class="tab-switch">
+      <button class="tab-btn active" onclick="switchTab('link')">連結查詢</button>
+      <button class="tab-btn" onclick="switchTab('writing')">文案查詢</button>
+      <button class="tab-btn" onclick="switchTab('question')">詢問模式</button>
+    </div>
+    <div class="input-area">
+      <div id="link-group" style="display: flex; width: 100%;">
+        <input type="text" id="link-input" placeholder="請輸入新聞連結..." style="flex:1;" />
+        <input type="date" id="link-date" style="margin-left:10px;" />
+      </div>
+      <div id="writing-group" style="display:none; width: 100%;">
+        <input type="text" id="writing-input" placeholder="請輸入文案內容..." style="flex:1;" />
+        <input type="date" id="writing-date" style="margin-left:10px;" />
+      </div>
+      <div id="question-group" style="display:none; width: 100%;">
+        <input type="text" id="question-input" placeholder="請輸入你的問題..." style="flex:1;" />
+        <input type="date" id="question-date" style="margin-left:10px;" />
+      </div>
+      <button id="query-btn">開始查詢</button>
+    </div>
+    <div class="answer-card">
+      <!-- 這裡顯示回答內容 -->
+      請輸入問題並點擊查詢，這裡會顯示答案。
+    </div>
+  </div>
+  <script src="service.js"></script>
+</body>
+</html> 
