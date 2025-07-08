@@ -483,6 +483,13 @@ button:hover {
     display: block;
     margin: 0 auto;
     text-align: center;
+    color: #333;
+    font-size: 1rem;
+  }
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    display: block;
+    width: 18px;
+    height: 18px;
   }
   #query-btn {
     width: 110%;
@@ -496,12 +503,8 @@ button:hover {
     margin: 0 auto;
     text-align: center;
   }
-  input[type="date"]::-webkit-calendar-picker-indicator {
-    width: 18px;
-    height: 18px;
-  }
-}
-.tab-btn:active {
+  .tab-btn:active {
   transform: scale(1.1);
   transition: transform 0.12s cubic-bezier(.4,0,.2,1);
+  }
 }
