@@ -1,5 +1,7 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, watch } from 'vue'
+import flatpickr from 'flatpickr'
+import 'flatpickr/dist/flatpickr.min.css'
 
 const tabType = ref('link')
 const input = ref('')
@@ -14,6 +16,20 @@ const result = ref(defaultMsg)
 const errorMessage = ref('')
 const isBouncing = ref(false)
 let errorTimeout = null
+
+const datePicker = ref(null)
+
+onMounted(() => {
+  if (datePicker.value) {
+    flatpickr(datePicker.value, {
+      dateFormat: 'Y/m/d',
+      defaultDate: date.value,
+      onChange: (selectedDates, dateStr) => {
+        date.value = dateStr
+      }
+    })
+  }
+})
 
 function switchTab(type) {
   tabType.value = type
@@ -110,17 +126,15 @@ function showError(msg) {
 
     <div class="input-area">
       <div class="input-group">
-        <input type="text" v-model="input" placeholder="請輸入新聞連結..." v-show="tabType === 'link'" />
-        <input type="text" v-model="input" placeholder="請輸入文案內容..." v-show="tabType === 'writing'" />
-        <input type="text" v-model="input" placeholder="請輸入你的問題..." v-show="tabType === 'question'" />
-        <input type="date" v-model="date" />
+        <input type="text" v-model="input" :placeholder="tabType === 'link' ? '請輸入新聞連結...' : tabType === 'writing' ? '請輸入文案內容...' : '請輸入你的問題...'" />
+        <input ref="datePicker" class="date-input" placeholder="年/月/日" readonly style="background:#fff8f0; cursor:pointer;" />
+        <button
+          id="query-btn"
+          :class="{ bounce: isBouncing }"
+          @click="validateAndQuery"
+          >開始查詢</button>
       </div>
-      <button
-        id="query-btn"
-        :class="{ bounce: isBouncing }"
-        @click="validateAndQuery"
-      >開始查詢</button>
-    </div>
+    </div> 
 
     <div class="answer-card" v-html="result"></div>
   </div>

@@ -58,44 +58,34 @@ h1 {
   gap: 0;
 }
 /* 調整輸入框*/
-input[type="text"] {
+input[type="text"]{
   flex: 1 1 0%;
   min-width: 0;
   max-width: 100%;
   padding: 24px 12px;
-  font-size: 1.05rem;
+  font-size: 1.2rem;
   border-radius: 12px;
   border: 2px solid #f89b2d;
   outline: none;
   background: #fff8f0;
   color: #333;
+  box-sizing: border-box;
 }
-input[type="date"] {
-  width: 140px;
-  flex: none;
-  flex-shrink: 0;
-  margin-left: 10px;
-  padding: 12px 12px;
-  border: 2px solid #f89b2d;
+
+.date-input.flatpickr-input {
+  min-width: 0;
+  max-width: 20%;
+  padding: 24px 1px;
+  font-size: 1.2rem;
   border-radius: 12px;
+  border: 2px solid #f89b2d;
+  outline: none;
   background: #fff8f0;
   color: #333;
-  font-size: 1.1rem;
-  outline: none;
-  box-shadow: 0 2px 8px #e0c9a633;
-  transition: border 0.2s, box-shadow 0.2s;
-  height: 44px;
+  box-sizing: border-box;
+  margin: 0 10px;
 }
-input[type="date"]:hover, input[type="date"]:focus {
-  border: 2px solid #f89b2d;
-  box-shadow: 0 4px 16px #f89b2d33;
-  background: #fff3e0;
-}
-/* 隱藏原生icon，改用自訂icon可再加 */
-input[type="date"]::-webkit-calendar-picker-indicator {
-  filter: invert(60%) sepia(80%) saturate(300%) hue-rotate(10deg);
-  cursor: pointer;
-}
+
 button {
   flex: none;
   background: #f89b2d;
@@ -473,24 +463,11 @@ button:hover {
     display: block;
     margin: 0 auto;
     text-align: center;
+    height: 80px;         
+    padding: 8px 12px;  
     margin-bottom: 10px;
   }
-  input[type="date"] {
-    width: 110%;
-    max-width: 80%;
-    min-width: 0;
-    box-sizing: border-box;
-    display: block;
-    margin: 0 auto;
-    text-align: center;
-    color: #333;
-    font-size: 1rem;
-  }
-  input[type="date"]::-webkit-calendar-picker-indicator {
-    display: block;
-    width: 18px;
-    height: 18px;
-  }
+
   #query-btn {
     width: 110%;
     max-width: 80%;
@@ -507,4 +484,22 @@ button:hover {
   transform: scale(1.1);
   transition: transform 0.12s cubic-bezier(.4,0,.2,1);
   }
+  .date-input.flatpickr-input {
+    width: 110%;
+    max-width: 80%;
+    min-width: 0;
+    box-sizing: border-box;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    color: #333;
+    font-size: 1rem;
+    border-radius: 8px;
+    padding: 8px 12px;
+    border: 2px solid #f89b2d;
+    background: #fff8f0;
+    height: 36px;
+    margin-bottom: 10px;
+  }
 }
+
